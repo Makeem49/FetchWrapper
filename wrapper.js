@@ -15,8 +15,20 @@ class FetchWrapper {
     }
 
     put(endpoint, content) {
+        return this._send('put', endpoint, content)
+    }
+
+    post(endpoint, content) {
+        return this._send('post', endpoint, content)
+    }
+
+    delete(endpoint, content) {
+        return this._send('delete', endpoint, content)
+    }
+
+    _send(method,endpoint, content) {
         return fetch(this.BaseURL + endpoint, {
-            method : 'put', 
+            method : method 
             headers : {
                 "Content-Type" : "Application/JSON"
             },
