@@ -15,18 +15,18 @@ class FetchWrapper {
     }
 
     put(endpoint, content) {
-        return this._send('put', endpoint, content)
+        return this.#send('put', endpoint, content)
     }
 
     post(endpoint, content) {
-        return this._send('post', endpoint, content)
+        return this.#send('post', endpoint, content)
     }
 
     delete(endpoint, content) {
-        return this._send('delete', endpoint, content)
+        return this.#send('delete', endpoint, content)
     }
 
-    _send(method,endpoint, content) {
+    #send(method,endpoint, content) {
         return fetch(this.BaseURL + endpoint, {
             method : method 
             headers : {
